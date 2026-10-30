@@ -4,8 +4,7 @@
   <img src="docs/screenshots/show.png" alt="The prompt refine button in the composer">
 </p>
 
-Captured in the composer: the `Prompt refine·On` button sits just left of the model selector and
-analyzes every message before it is sent, asking first when something is ambiguous.
+<p align="center"><em>Captured in the composer: the <code>Prompt refine·On</code> button sits just left of the model selector.</em></p>
 
 [简体中文](README.md) ｜ English
 
@@ -27,27 +26,24 @@ to be more explicit using the current session context, and asks you about blocki
 - **Failures never break the turn** — errors, timeouts and unparseable output only append one error line;
   the turn continues with your original input.
 
-Three button states:
-
-| State | Label | Meaning |
-| --- | --- | --- |
-| Auto on | `Prompt refine·On` | every long-enough message is refined before sending |
-| Auto off | `Prompt refine·Off` | analysis only when you trigger it (button greyed out) |
-| Working | `Prompt refine` + three breathing dots | analyzing; button temporarily disabled, then restores |
+## Screenshots
 
 <p align="center">
+  <img src="docs/screenshots/button-auto.png" alt="The Prompt refine·On button" width="169">
+  &nbsp;&nbsp;
   <img src="docs/screenshots/button-off.png" alt="The Prompt refine·Off button" width="169">
 </p>
 
-Auto off: the label reads `Prompt refine·Off` and the whole button greys out; analysis only runs when you
-click it.
+<p align="center"><em>Left: <code>Prompt refine·On</code> (blue gradient). Right: <code>Prompt refine·Off</code> (greyed out, switched by right-click).</em></p>
 
 <p align="center">
   <img src="docs/screenshots/panel.png" alt="The prompt refine panel" width="440">
 </p>
 
-The panel that opens when you click the button: it shows the refined prompt first, then the ambiguities
-it needs you to settle, and from there you can replace the draft or copy the result.
+<p align="center"><em>The panel that opens when you click the button: the refined prompt first, then the ambiguities it needs you to settle.</em></p>
+
+For where the button sits in the composer control row see [Usage](#usage). The working state, the in-chat
+card and the clarification card still need screenshots; they go into `docs/screenshots/` as well.
 
 ## Usage
 
@@ -58,15 +54,17 @@ The button sits in the composer area (below the input, left of the model selecto
   menu).
 - Hover shows the full name and state: `Prompt refine (on)` / `Prompt refine (off)`.
 
-Where it actually sits in the composer control row (plugin button in the middle, model selector and
-send key to the right):
-
 ![The Prompt refine button in the composer](docs/screenshots/button-in-composer.png)
 
-Close-up with AUTO on: blue gradient background + `Prompt refine·On`. Right-click turns it into the
-greyed-out `Prompt refine·Off`:
+<p align="center"><em>Plugin button in the middle, model selector and send key to the right.</em></p>
 
-![The Prompt refine·On button](docs/screenshots/button-auto.png)
+Three button states:
+
+| State | Label | Meaning |
+| --- | --- | --- |
+| Auto on | `Prompt refine·On` | every long-enough message is refined before sending |
+| Auto off | `Prompt refine·Off` | analysis only when you trigger it (button greyed out) |
+| Working | `Prompt refine` + three breathing dots | analyzing; button temporarily disabled, then restores |
 
 ### Auto mode
 
@@ -108,7 +106,7 @@ button and panels live in that client).
 dsh plugin --profile desktop add dsh-prompt-clarifier
 ```
 
-Pin a version with `dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.4`.
+Pin a version with `dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.5`.
 
 Without the `dsh` CLI (desktop-app-only installs), ask the assistant to install it — it uses
 `plugin_manager`'s `install_bundle` to do the same installation and activation:
@@ -157,16 +155,7 @@ layer). Restart Harness to apply changes.
 | `autoFast` | `false` | also route the per-message auto call through the fast route (quality first by default) |
 | `timingLog` | `''` | file path for timing samples (debugging; empty = off) |
 
-## Screenshots
-
-Two real screenshots of the button are embedded in [Usage](#usage)
-(`docs/screenshots/button-in-composer.png`, `docs/screenshots/button-auto.png`). The rest are still
-to be captured and dropped into `docs/screenshots/`:
-
-- `docs/screenshots/button-off.png` — `Prompt refine·Off` after a right-click (greyed out)
-- `docs/screenshots/button-busy.png` — `Prompt refine` with three breathing dots
-- `docs/screenshots/card-progress.png` — the `Prompt refine` card accumulating three phases
-- `docs/screenshots/clarify-panel.png` — the clarification card and the refinement panel
+## Development notes
 
 Implementation notes, fix history and test details live in `_docs/prompt-clarifier-internals.md`
 (not part of the published package).

@@ -4,7 +4,7 @@
   <img src="docs/screenshots/show.png" alt="输入区里的提示词优化按钮">
 </p>
 
-输入区实拍：`提示词优化·自动` 按钮就在模型选择器左侧，消息发出前自动分析、按需澄清。
+<p align="center"><em>输入区实拍：<code>提示词优化·自动</code> 按钮就在模型选择器左侧。</em></p>
 
 简体中文 ｜ [English](README-en.md)
 
@@ -22,25 +22,24 @@
   它不打断对话流，也不占用模型上下文。
 - **失败不中断**：模型报错、超时、返回内容无法解析时，只追加一行错误说明，本轮按原始输入继续。
 
-按钮三态：
-
-| 状态 | 按钮文案 | 含义 |
-| --- | --- | --- |
-| 自动开启 | `提示词优化·自动` | 每条够长的消息都会在发送前自动分析 |
-| 自动关闭 | `提示词优化·关闭` | 只在你主动触发时分析（按钮置灰） |
-| 进行中 | `提示词优化` + 三个呼吸圆点 | 正在分析；按钮临时禁用，结束后自动恢复 |
+## 截图
 
 <p align="center">
+  <img src="docs/screenshots/button-auto.png" alt="提示词优化·自动 状态的按钮" width="169">
+  &nbsp;&nbsp;
   <img src="docs/screenshots/button-off.png" alt="提示词优化·关闭 状态的按钮" width="169">
 </p>
 
-自动关闭时的按钮：文案为 `提示词优化·关闭`，整块置灰，只在你主动点击时分析。
+<p align="center"><em>左：<code>提示词优化·自动</code>（蓝色渐变底）；右：<code>提示词优化·关闭</code>（整块置灰，右键切换）。</em></p>
 
 <p align="center">
   <img src="docs/screenshots/panel.png" alt="提示词优化面板" width="440">
 </p>
 
-点击按钮后的面板：先给出优化后的提示词，再列出需要你确认的歧义点，选定后即可替换草稿或复制。
+<p align="center"><em>点击按钮后的面板：先给出优化后的提示词，再列出需要你确认的歧义点。</em></p>
+
+按钮在输入区控制行里的位置见[用法](#用法)。`进行中`、主对话卡片、澄清提问三类截图补齐后一并放进
+`docs/screenshots/`。
 
 ## 用法
 
@@ -50,13 +49,17 @@
 - **右键单击** = 切换 `提示词优化·自动` ↔ `提示词优化·关闭`，并吞掉浏览器右键菜单。
 - 悬停显示完整名称与状态：`提示词优化（开启）` / `提示词优化（关闭）`。
 
-它在输入区控制行里的实际位置（中间是插件按钮，右侧是模型选择器与发送键）：
-
 ![提示词优化按钮在输入区的位置](docs/screenshots/button-in-composer.png)
 
-AUTO 开启时的近照：蓝色渐变底 + `提示词优化·自动`。右键点击即变成置灰的 `提示词优化·关闭`：
+<p align="center"><em>中间是插件按钮，右侧是模型选择器与发送键。</em></p>
 
-![提示词优化·自动 状态的按钮](docs/screenshots/button-auto.png)
+按钮三态：
+
+| 状态 | 按钮文案 | 含义 |
+| --- | --- | --- |
+| 自动开启 | `提示词优化·自动` | 每条够长的消息都会在发送前自动分析 |
+| 自动关闭 | `提示词优化·关闭` | 只在你主动触发时分析（按钮置灰） |
+| 进行中 | `提示词优化` + 三个呼吸圆点 | 正在分析；按钮临时禁用，结束后自动恢复 |
 
 ### 自动模式
 
@@ -95,7 +98,7 @@ AUTO 开启时的近照：蓝色渐变底 + `提示词优化·自动`。右键�
 dsh plugin --profile desktop add dsh-prompt-clarifier
 ```
 
-也可以指定版本：`dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.4`。
+也可以指定版本：`dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.5`。
 
 没有 `dsh` 命令行的环境（例如只装了桌面端），在 DSH 里让助手安装即可——助手用
 `plugin_manager` 的 `install_bundle` 完成同样的安装与启用：
@@ -141,15 +144,7 @@ dsh plugin --profile desktop add dsh-prompt-clarifier
 | `autoFast` | `false` | 自动模式那次逐条调用是否也走快速路由（默认质量优先） |
 | `timingLog` | `''` | 耗时打点落盘路径（排查用，留空关闭） |
 
-## 截图
-
-按钮的两张实机截图已放在[用法](#用法)里（`docs/screenshots/button-in-composer.png`、
-`docs/screenshots/button-auto.png`）。其余待补，补齐后放进 `docs/screenshots/`：
-
-- `docs/screenshots/button-off.png` — 右键切换后的 `提示词优化·关闭`（置灰）
-- `docs/screenshots/button-busy.png` — 进行中的 `提示词优化` + 三个呼吸圆点
-- `docs/screenshots/card-progress.png` — 累积三阶段的 `提示词优化` 卡片
-- `docs/screenshots/clarify-panel.png` — 歧义提问卡片与「建议的优化版本」面板
+## 开发与内部文档
 
 内部实现、修复记录与测试细节见 `_docs/prompt-clarifier-internals.md`（不随包发布）。
 

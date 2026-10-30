@@ -1,17 +1,23 @@
-# 截图 / Screenshots
+# 截图目录 / Screenshots
 
-README 里引用的图片都在这里（均为实机截图，从运行中的 Harness 输入区裁切）：
+README 里引用的图片都在这里，全部是运行中 Harness 输入区的实机截图（PrintWindow 抓窗口后按同一套
+坐标裁切，蓝底白字经 OCR 复核）。
 
-| 文件 | 尺寸 | 内容 |
-| --- | --- | --- |
-| `show.png` | 1308×386 | 输入区实拍（README 顶部效果图）：`提示词优化·自动` 按钮 + 模型选择器 + 发送键 |
-| `button-in-composer.png` | 610×56 | `提示词优化` 按钮在输入区控制行里的位置（模型选择器与发送键在右侧） |
-| `button-auto.png` | 169×37 | `提示词优化·自动` 状态近照（蓝色渐变底） |
-| `button-off.png` | 169×38 | `提示词优化·关闭` 状态近照（整块置灰） |
-| `panel.png` | 546×468 | 点击按钮后弹出的优化面板：上方是优化后的提示词，下方是需要确认的歧义点与选项 |
+| 文件 | 尺寸 | 内容 | 引用位置 |
+| --- | --- | --- | --- |
+| `show.png` | 1308×386 | 输入区实拍：按钮 + 模型选择器 + 发送键 | README 顶部效果图 |
+| `button-in-composer.png` | 610×56 | 按钮在控制行里的位置 | 用法 · 按钮一节 |
+| `button-auto.png` | 169×37 | `提示词优化·自动`（蓝色渐变底） | 截图 · 三态对照 |
+| `button-off.png` | 169×38 | `提示词优化·关闭`（整块置灰） | 截图 · 三态对照 |
+| `panel.png` | 546×468 | 优化面板：改写结果 + 待确认歧义点 | 截图 · 面板 |
 
-待补：`进行中`（三个呼吸圆点）状态、主对话卡片三阶段、澄清提问面板。
+中英两份 README 引用同一组文件，路径统一为仓库内相对路径。
 
-Images referenced by the README live here, cropped from the composer of a running Harness. Still to
-add: the working state (three breathing dots), the in-chat card with its three phases, and the
-clarification panel.
+待补（补到本目录后在 README「截图」一节加一组）：
+
+- `button-busy.png` — `提示词优化` + 三个呼吸圆点的进行中状态
+- `card-progress.png` — 主对话里累积 1/3 → 2/3 → 3/3 → 结果的卡片
+- `clarify-panel.png` — 歧义提问卡片
+
+Both READMEs reference the same files by repository-relative path. Still to capture: the working state
+(three breathing dots), the in-chat card with its three phases, and the clarification card.
