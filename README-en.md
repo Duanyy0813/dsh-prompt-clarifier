@@ -110,7 +110,7 @@ button and panels live in that client).
 dsh plugin --profile desktop add dsh-prompt-clarifier
 ```
 
-Pin a version with `dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.5`.
+Pin a version with `dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.6`.
 
 Without the `dsh` CLI (desktop-app-only installs), ask the assistant to install it — it uses
 `plugin_manager`'s `install_bundle` to do the same installation and activation:

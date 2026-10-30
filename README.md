@@ -102,7 +102,7 @@
 dsh plugin --profile desktop add dsh-prompt-clarifier
 ```
 
-也可以指定版本：`dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.5`。
+也可以指定版本：`dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.6`。
 
 没有 `dsh` 命令行的环境（例如只装了桌面端），在 DSH 里让助手安装即可——助手用
 `plugin_manager` 的 `install_bundle` 完成同样的安装与启用：
