@@ -70,7 +70,7 @@ This package is a DSH **bundle**: `dsh.bundle.patch` in `package.json` points at
 which inserts a Host plugin row named `prompt-clarifier` and registers a browser client module (the
 button and panels live in that client).
 
-### Option 1 — install from npm (recommended)
+### One-line install
 
 ```bash
 # into the current profile (`desktop` → `web` / `tui` as needed)
@@ -88,31 +88,10 @@ The mechanics are the same: fetch the package from npm, install it into the prof
 bundle. Per the plugin guidelines, do **not** hand-write the profile's `package.json` /
 `cordis.patch.yml`, and do not run `pnpm` in the profile directory.
 
-### Option 2 — manage it from Settings
-
-Once installed, **Settings → Plugins (Plugin list)** shows the bundle and its plugin rows:
-
-- title and description come from `meta` in `locale/zh.json` / `locale/en.json`;
-- enable/disable the row, or remove the bundle (`set_plugin` / `set_bundle` / `remove_bundle`);
-- if "page local sync failed" appears, retry as prompted; the Host-side toggle is unaffected.
-
-### Alternative — install from source
-
-To modify the code, or to run an unreleased version:
-
-```bash
-git clone https://github.com/Duanyy0813/dsh-prompt-clarifier.git
-```
-
-The repository has no `node_modules`; the clone is a directly installable bundle directory. Give
-the assistant its **absolute path**:
-
-> Install this plugin: `<absolute path of the clone>`
-
-The assistant installs it with `install_bundle` (`target` = that absolute directory). A local
-directory install is a **link**: later edits to the plugin files take effect directly (the `files`
-whitelist does not filter a linked directory) — refresh the page for `client.js` changes, restart
-Harness for `index.js` changes. Repository: <https://github.com/Duanyy0813/dsh-prompt-clarifier>.
+Once installed, **Settings → Plugins (Plugin list)** can enable/disable the plugin row or remove the
+bundle (`set_plugin` / `set_bundle` / `remove_bundle`); the title and description come from `meta` in
+`locale/zh.json` / `locale/en.json`. If "page local sync failed" appears, retry as prompted — the
+Host-side toggle is unaffected.
 
 ### Taking effect
 
