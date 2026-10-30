@@ -22,8 +22,8 @@ to be more explicit using the current session context, and asks you about blocki
   answer is merged into the turn, and on timeout the plugin proceeds on stated assumptions.
 - **One card in the main conversation** — `1/3 read context` → `2/3 model analysis` →
   `3/3 clarification` → `result` accumulate in a single tool card while the turn runs; when the turn
-  ends, the same content stays visible as its own card under the answer, so you never have to expand a
-  collapsed "thinking" section to find it. It never enters the model context.
+  ends, the same card folds into that turn's collapsed "thinking" region, where you can expand it any
+  time. It never enters the model context.
 - **Failures never break the turn** — errors, timeouts and unparseable output only append one error line;
   the turn continues with your original input.
 
@@ -34,6 +34,20 @@ Three button states:
 | Auto on | `Prompt refine·On` | every long-enough message is refined before sending |
 | Auto off | `Prompt refine·Off` | analysis only when you trigger it (button greyed out) |
 | Working | `Prompt refine` + three breathing dots | analyzing; button temporarily disabled, then restores |
+
+<p align="center">
+  <img src="docs/screenshots/button-off.png" alt="The Prompt refine·Off button" width="169">
+</p>
+
+Auto off: the label reads `Prompt refine·Off` and the whole button greys out; analysis only runs when you
+click it.
+
+<p align="center">
+  <img src="docs/screenshots/panel.png" alt="The prompt refine panel" width="440">
+</p>
+
+The panel that opens when you click the button: it shows the refined prompt first, then the ambiguities
+it needs you to settle, and from there you can replace the draft or copy the result.
 
 ## Usage
 
