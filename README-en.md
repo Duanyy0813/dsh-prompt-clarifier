@@ -37,6 +37,16 @@ The button sits in the composer area (below the input, left of the model selecto
   menu).
 - Hover shows the full name and state: `Prompt refine (on)` / `Prompt refine (off)`.
 
+Where it actually sits in the composer control row (plugin button in the middle, model selector and
+send key to the right):
+
+![The Prompt refine button in the composer](docs/screenshots/button-in-composer.png)
+
+Close-up with AUTO on: blue gradient background + `Prompt refine·On`. Right-click turns it into the
+greyed-out `Prompt refine·Off`:
+
+![The Prompt refine·On button](docs/screenshots/button-auto.png)
+
 ### Auto mode
 
 1. Type and send a message (≥ 10 characters by default — see [Configuration](#configuration)).
@@ -128,9 +138,10 @@ layer). Restart Harness to apply changes.
 
 ## Screenshots
 
-> Placeholders; drop the images into `docs/screenshots/` and replace the links below.
+Two real screenshots of the button are embedded in [Usage](#usage)
+(`docs/screenshots/button-in-composer.png`, `docs/screenshots/button-auto.png`). The rest are still
+to be captured and dropped into `docs/screenshots/`:
 
-- `docs/screenshots/button-idle.png` — the `Prompt refine·On` button while idle
 - `docs/screenshots/button-off.png` — `Prompt refine·Off` after a right-click (greyed out)
 - `docs/screenshots/button-busy.png` — `Prompt refine` with three breathing dots
 - `docs/screenshots/card-progress.png` — the `Prompt refine` card accumulating three phases

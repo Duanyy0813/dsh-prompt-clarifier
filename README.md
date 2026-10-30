@@ -32,6 +32,14 @@
 - **右键单击** = 切换 `提示词优化·自动` ↔ `提示词优化·关闭`，并吞掉浏览器右键菜单。
 - 悬停显示完整名称与状态：`提示词优化（开启）` / `提示词优化（关闭）`。
 
+它在输入区控制行里的实际位置（中间是插件按钮，右侧是模型选择器与发送键）：
+
+![提示词优化按钮在输入区的位置](docs/screenshots/button-in-composer.png)
+
+AUTO 开启时的近照：蓝色渐变底 + `提示词优化·自动`。右键点击即变成置灰的 `提示词优化·关闭`：
+
+![提示词优化·自动 状态的按钮](docs/screenshots/button-auto.png)
+
 ### 自动模式
 
 1. 正常输入并发送一条消息（默认要求 ≥ 10 字，见[配置](#配置)）。
@@ -117,9 +125,9 @@ dsh plugin --profile desktop add dsh-prompt-clarifier
 
 ## 截图
 
-> 占位；补齐后放入 `docs/screenshots/` 并替换下面的链接。
+按钮的两张实机截图已放在[用法](#用法)里（`docs/screenshots/button-in-composer.png`、
+`docs/screenshots/button-auto.png`）。其余待补，补齐后放进 `docs/screenshots/`：
 
-- `docs/screenshots/button-idle.png` — 空闲态的 `提示词优化·自动` 按钮
 - `docs/screenshots/button-off.png` — 右键切换后的 `提示词优化·关闭`（置灰）
 - `docs/screenshots/button-busy.png` — 进行中的 `提示词优化` + 三个呼吸圆点
 - `docs/screenshots/card-progress.png` — 累积三阶段的 `提示词优化` 卡片
