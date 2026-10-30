@@ -54,10 +54,6 @@ The button sits in the composer area (below the input, left of the model selecto
   menu).
 - Hover shows the full name and state: `Prompt refine (on)` / `Prompt refine (off)`.
 
-![The Prompt refine button in the composer](docs/screenshots/button-in-composer.png)
-
-<p align="center"><em>Plugin button in the middle, model selector and send key to the right.</em></p>
-
 Three button states:
 
 | State | Label | Meaning |
@@ -65,6 +61,14 @@ Three button states:
 | Auto on | `Prompt refine·On` | every long-enough message is refined before sending |
 | Auto off | `Prompt refine·Off` | analysis only when you trigger it (button greyed out) |
 | Working | `Prompt refine` + three breathing dots | analyzing; button temporarily disabled, then restores |
+
+Where it sits in the control row:
+
+<p align="center">
+  <img src="docs/screenshots/button-in-composer.png" alt="The Prompt refine button in the composer">
+</p>
+
+<p align="center"><em>Plugin button in the middle, model selector and send key to the right.</em></p>
 
 ### Auto mode
 
