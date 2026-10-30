@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Prompt Refiner & Clarifier",
+    "description": "Optimizes each incoming prompt against session context, and proactively asks the user about blocking ambiguities before the agent runs. Adds a Refine button under the composer."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "dsh-prompt-clarifier",
+  "version": "0.3.4",
+  "type": "module",
+  "description": "Optimize the incoming prompt against session context and proactively ask the user about blocking ambiguities before the agent runs.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README-en.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-bundle",
+    "prompt",
+    "prompt-engineering",
+    "clarification",
+    "cordis"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node test/smoke-host.mjs && node test/smoke-client.mjs",
+    "check": "node --check index.js && node --check client.js"
+  },
+  "author": "duanyy0813@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duanyy0813/dsh-prompt-clarifier.git"
+  },
+  "homepage": "https://github.com/Duanyy0813/dsh-prompt-clarifier#readme",
+  "bugs": {
+    "url": "https://github.com/Duanyy0813/dsh-prompt-clarifier/issues"
+  }
+}

@@ -1,0 +1,34 @@
+# dsh-prompt-clarifier 的 loader patch 层：插入 Host 行并给出可调 config。
+# 想关掉自动模式（只保留输入框下方的“优化 / 澄清”按钮），把 auto 改成 false；
+# 想在发现歧义时不再阻塞提问，把 askBlocking 改成 false。
+- insert:
+    - id: prompt-clarifier
+      name: dsh-prompt-clarifier
+      config:
+        enabled: true
+        auto: true
+        askBlocking: true
+        minChars: 10
+        maxInputChars: 8000
+        # 旁路分析的端到端上限与输出预算；推理档位已自动降到该模型的最低档，
+        # 不再继承会话的 high 档（2026-10-29 实测 high 档会把小 JSON 分析拖到超时）。
+        timeoutMs: 45000
+        # 输出预算：768 实测会让思考吃满预算导致空输出，恢复 2048。
+        maxOutputTokens: 2048
+        # 提问卡片的等待时间：超时无人作答就按假设继续，不把回合卡死。
+        askTimeoutMs: 180000
+        # 主对话里的三条进度行（1/3 读取上下文、2/3 模型分析、3/3 澄清提问）。
+        # 改成 false 后自动模式每轮只留一行「结果」；错误行不受这个开关影响。
+        showProgress: true
+        # 上下文采样：更短的 prompt → 更快的首 token。
+        contextItems: 5
+        contextItemChars: 280
+        # 手动快速模式（默认关闭）：两项都填上后，手动点击与 Agent 工具改走这条更快的路由；
+        # 选择器自身的显示与选中状态不变。留空 = 仍用选择器选中的模型。
+        fastProvider: ''
+        fastModel: ''
+        # 打开后，自动模式逐条付费的那次旁路调用也走上面这条快速路由
+        # （默认 false = 用会话当前模型，改写质量优先）。
+        autoFast: false
+        # 耗时打点落盘（默认关闭）。需要排查时填一个可写路径，例如 ./prompt-clarifier.jsonl
+        timingLog: ''
