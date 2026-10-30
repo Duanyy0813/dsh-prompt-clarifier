@@ -1,9 +1,11 @@
-![The prompt refine button in the composer](docs/screenshots/show.png)
+# dsh-prompt-clarifier
+
+<p align="center">
+  <img src="docs/screenshots/show.png" alt="The prompt refine button in the composer">
+</p>
 
 Captured in the composer: the `Prompt refine·On` button sits just left of the model selector and
 analyzes every message before it is sent, asking first when something is ambiguous.
-
-# dsh-prompt-clarifier
 
 [简体中文](README.md) ｜ English
 

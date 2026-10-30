@@ -1,8 +1,10 @@
-![输入区里的提示词优化按钮](docs/screenshots/show.png)
+# dsh-prompt-clarifier
+
+<p align="center">
+  <img src="docs/screenshots/show.png" alt="输入区里的提示词优化按钮">
+</p>
 
 输入区实拍：`提示词优化·自动` 按钮就在模型选择器左侧，消息发出前自动分析、按需澄清。
-
-# dsh-prompt-clarifier
 
 简体中文 ｜ [English](README-en.md)
 
