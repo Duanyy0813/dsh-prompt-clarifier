@@ -2,6 +2,28 @@
 
 本插件的变更记录。版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## 0.3.5
+
+只动文档与截图，代码一行未改。
+
+### README 改为对外双语文档
+
+中文 `README.md` 与英文 `README-en.md` 分成两个文件，顶部互加语言切换链接；内容按「功能 / 用法 /
+安装 / 配置 / 截图 / 许可」重写，删掉面向开发的内部细节（那部分移到 `_docs/`）。开头是一张输入区
+实拍图（居中），说明按钮在真实界面里的位置。
+
+### 安装章只留 npm 一键安装
+
+主路径改为 `dsh plugin --profile desktop add dsh-prompt-clarifier`（可 `@0.3.5` 锁版本）；没有
+CLI 时让助手用 `install_bundle` 直接装包名。原先的「设置里管理」与「从源码 git clone + 绝对路径
+安装」两节已删除，本地目录安装的细节留在 `_docs/` 里备查。
+
+### 三张真实截图
+
+`docs/screenshots/` 下新增 `show.png`（输入区实拍，README 顶部效果图）、`button-in-composer.png`
+（按钮在控制行里的位置）、`button-auto.png`（`提示词优化·自动` 近照）。截图取自运行中的 Harness
+窗口，`files` 里加了 `docs/screenshots/*.png` 以免 npm 页面上的图片 404。
+
 ## 0.3.4
 
 两件事：撤销 0.3.3 的「回合收尾独立卡片」，并修复「优化中」状态不再出现。

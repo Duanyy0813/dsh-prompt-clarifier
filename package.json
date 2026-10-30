@@ -1,6 +1,6 @@
 {
   "name": "dsh-prompt-clarifier",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "type": "module",
   "description": "Optimize the incoming prompt against session context and proactively ask the user about blocking ambiguities before the agent runs.",
   "exports": {
