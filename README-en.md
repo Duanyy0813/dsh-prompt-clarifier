@@ -70,37 +70,49 @@ This package is a DSH **bundle**: `dsh.bundle.patch` in `package.json` points at
 which inserts a Host plugin row named `prompt-clarifier` and registers a browser client module (the
 button and panels live in that client).
 
-### Option 0 — get the source
+### Option 1 — install from npm (recommended)
+
+```bash
+# into the current profile (`desktop` → `web` / `tui` as needed)
+dsh plugin --profile desktop add dsh-prompt-clarifier
+```
+
+Pin a version with `dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.4`.
+
+Without the `dsh` CLI (desktop-app-only installs), ask the assistant to install it — it uses
+`plugin_manager`'s `install_bundle` to do the same installation and activation:
+
+> Install the plugin: `dsh-prompt-clarifier`
+
+The mechanics are the same: fetch the package from npm, install it into the profile, select the
+bundle. Per the plugin guidelines, do **not** hand-write the profile's `package.json` /
+`cordis.patch.yml`, and do not run `pnpm` in the profile directory.
+
+### Option 2 — manage it from Settings
+
+Once installed, **Settings → Plugins (Plugin list)** shows the bundle and its plugin rows:
+
+- title and description come from `meta` in `locale/zh.json` / `locale/en.json`;
+- enable/disable the row, or remove the bundle (`set_plugin` / `set_bundle` / `remove_bundle`);
+- if "page local sync failed" appears, retry as prompted; the Host-side toggle is unaffected.
+
+### Alternative — install from source
+
+To modify the code, or to run an unreleased version:
 
 ```bash
 git clone https://github.com/Duanyy0813/dsh-prompt-clarifier.git
 ```
 
-Repository: <https://github.com/Duanyy0813/dsh-prompt-clarifier> (issues and updates live there).
-Clone it anywhere; installation takes the **absolute path of the cloned directory**.
+The repository has no `node_modules`; the clone is a directly installable bundle directory. Give
+the assistant its **absolute path**:
 
-### Option 1 — let DSH install it (recommended)
+> Install this plugin: `<absolute path of the clone>`
 
-Place this directory anywhere, then give the assistant its **absolute path**, for example:
-
-> Install this plugin: `<any absolute path on this machine>`
-
-The assistant uses `plugin_manager` with `install_bundle` (`target` = that absolute directory) to install
-and enable it. Per the plugin guidelines, do **not** hand-write the profile's `package.json` /
-`cordis.patch.yml` and do **not** run `pnpm` inside the profile directory — `install_bundle` performs
-those steps.
-
-A local-directory install is **linked**: later edits to the plugin take effect directly (`files` does not
-filter a linked directory).
-
-### Option 2 — manage it from Settings
-
-After installation, **Settings → Plugins (Plugin list)** shows the bundle and its plugin row:
-
-- The row title/description come from this package's `locale/zh.json` / `locale/en.json` `meta`;
-- Enable/disable the row or remove the bundle there (the UI equivalent of `set_plugin` / `set_bundle` /
-  `remove_bundle`);
-- If a page-local sync failure appears, retry as prompted; Host-side state is unaffected.
+The assistant installs it with `install_bundle` (`target` = that absolute directory). A local
+directory install is a **link**: later edits to the plugin files take effect directly (the `files`
+whitelist does not filter a linked directory) — refresh the page for `client.js` changes, restart
+Harness for `index.js` changes. Repository: <https://github.com/Duanyy0813/dsh-prompt-clarifier>.
 
 ### Taking effect
 

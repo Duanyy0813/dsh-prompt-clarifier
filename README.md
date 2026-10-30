@@ -62,26 +62,22 @@
 安装后向 Host 插入一个 `prompt-clarifier` 插件行，并注册一个浏览器端 client
 （网页端的按钮、面板都在这个 client 里）。
 
-### 方式零：拿到源码
+### 方式一：从 npm 安装（推荐）
 
 ```bash
-git clone https://github.com/Duanyy0813/dsh-prompt-clarifier.git
+# 装到当前 profile（`desktop` 换成 `web` / `tui` 即可）
+dsh plugin --profile desktop add dsh-prompt-clarifier
 ```
 
-仓库：<https://github.com/Duanyy0813/dsh-prompt-clarifier>（Issues、更新都在这）。
-克隆到哪里都可以，安装时给的是**克隆后的绝对目录**。
+也可以指定版本：`dsh plugin --profile desktop add dsh-prompt-clarifier@0.3.4`。
 
-### 方式一：让 DSH 自己装（推荐）
+没有 `dsh` 命令行的环境（例如只装了桌面端），在 DSH 里让助手安装即可——助手用
+`plugin_manager` 的 `install_bundle` 完成同样的安装与启用：
 
-把本目录放到任意位置，然后把它的**绝对路径**告诉 DSH 里的助手，例如：
+> 安装插件：`dsh-prompt-clarifier`
 
-> 安装这个插件：`<本机任意绝对路径>`
-
-助手会用 `plugin_manager` 的 `install_bundle`（`target` = 该绝对目录）完成安装与启用。
-按官方插件准则，**不要**手工去写 profile 的 `package.json` / `cordis.patch.yml`，
-也不要在 profile 目录里跑 `pnpm`——这些步骤 `install_bundle` 会自己处理。
-
-本地目录安装是 **link 方式**：之后改动插件文件即生效（`files` 白名单不会过滤已链接的目录）。
+其实质与命令行一致：从 npm 取包、装进 profile、把 bundle 选中。按官方插件准则，
+**不要**手工写 profile 的 `package.json` / `cordis.patch.yml`，也不要在 profile 目录里跑 `pnpm`。
 
 ### 方式二：在设置里管理
 
@@ -90,6 +86,23 @@ git clone https://github.com/Duanyy0813/dsh-prompt-clarifier.git
 - 标题/说明来自本包导出的 `locale/zh.json`、`locale/en.json` 的 `meta`；
 - 可启用/停用插件行，或移除 bundle（等价于 `set_plugin` / `set_bundle` / `remove_bundle`）；
 - 出现「页面本地同步失败」时按提示重试，不影响 Host 侧开关。
+
+### 备选：从源码安装
+
+想改代码、或想跑在未发布的版本上时，用源码方式：
+
+```bash
+git clone https://github.com/Duanyy0813/dsh-prompt-clarifier.git
+```
+
+库里没有 `node_modules`，克隆下来就是一个可直接安装的 bundle 目录。然后把**这个目录的绝对路径**
+告诉 DSH 里的助手：
+
+> 安装这个插件：`<克隆后的绝对目录>`
+
+助手会用 `install_bundle`（`target` = 该绝对目录）安装。本地目录安装是 **link 方式**：
+之后改动插件文件即生效（`files` 白名单不会过滤已链接的目录），改 `client.js` 刷新页面、
+改 `index.js` 重启 Harness 即可看到效果。仓库地址：<https://github.com/Duanyy0813/dsh-prompt-clarifier>。
 
 ### 生效方式
 
