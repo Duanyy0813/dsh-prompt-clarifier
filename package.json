@@ -18,7 +18,8 @@
     "docs/screenshots/*.png",
     "README.md",
     "README-en.md",
-    "LICENSE"
+    "LICENSE",
+    "screenshots.json"
   ],
   "dsh": {
     "bundle": {
